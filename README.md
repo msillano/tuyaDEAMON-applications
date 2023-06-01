@@ -42,7 +42,7 @@ Some activities are handled by TuyaDAEMON with the _Tuya-cloud_ collaboration: i
 Of the [DataBase](https://github.com/msillano/tuyaDAEMON/tree/main#database-interface), only one table affects the applications and contains the historical log (commands and events) of TuyaDAEMON: `tuyathome.messages`. The record comprises complete information: 
 
 `   id |           timestamp |   daemon|action|    device-id |device-name|dps| dp-name|             data | value`
-
+example:<br>
 `45276 | 2023-05-28 07:33:32 | MACTEST | RX | 1234569b99a78mkj6 | mainAC | 6 | phaseA | CYgAAlgAADMACw== | {"V":244,"Leack":0.002,"A":0.67584,"W":51}`.
 
 
