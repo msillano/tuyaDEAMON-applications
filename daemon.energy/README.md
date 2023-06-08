@@ -99,7 +99,7 @@ With this device you cannot use REFRESH, which produces an output only if the da
 
  ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/meterA001.png?raw=true)
  
- As can be seen in the figure, two devices (`meterB`, `meterC`) respond to GET with the requested `dp`., while the device `meterZ` responds as to a SCHEMA request.
+ As can be seen in the figure, two devices (`meterB`, `meterC`) respond to periodical GET with the requested `dp`., while the device `meterZ` responds as to a SCHEMA request.
  
  note: _For the repeated interval (like 'Interval for retry connection' in tuya-smart-device nodes, timeout in loops, etc.) use different values, better prime number (https://www.walter-fendt.de/html5/mit/primenumbers_it.htm), to spread better tuyaDAEMON activity, and NOT 2 sec, 3000 ms etc._
  
