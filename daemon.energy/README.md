@@ -6,7 +6,7 @@ This home automation application offers a seamless and intuitive user experience
 
 To tailor the flow and tuyaDEAMON to achieve a well-populated 5-minute database 'energy' view while dealing with lazy devices and verbose devices, I used the following approaches:
 
-1. Verbose Devices (Too Much Data):
+#### 1.a Verbose Devices (Too Much Data)
  A [BreakerDIN](https://github.com/msillano/tuyaDAEMON/blob/main/devices/BreakerDIN/device_BreakerDIN.pdf) is used as differential breacker on the house electrical switchboard, and as grid power meter. The problem is that it send data every second, and I haven't found a method to reduce the throughput of the device. 
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/mainAC003.png?raw=true)
@@ -48,7 +48,7 @@ _This solution has the only advantage of using the original tuya-smart-device no
 
 
 
-2. Lazy Devices (Too Little Data)
+#### 1.b Lazy Devices (Too Little Data)
  Other devices transmit data too infrequently. This is the case, for example, of [meter-plugs](https://github.com/msillano/tuyaDAEMON/blob/main/devices/Smart_socket/device_Smart_socket.pdf) used to evaluate the consumption of some household appliances.
 With this device you cannot use REFRESH, which produces an output only if the data has changed, but you must make repeated readings (GET) about every 100 seconds. Since you don't have to use new functions, you don't need to change the flows, and the implementation is all done with 'share', updating _system._laststart_, and adding a new dp (method) system._refreshforever. 
 
@@ -86,7 +86,7 @@ With this device you cannot use REFRESH, which produces an output only if the da
                                 {
                                     "property": "_timerON",
                                     "value": {
-                                        "timeout": "60037",
+                                        "timeout": "99929",
                                         "id": "refreshforever",
                                         "alarmPayload": {
                                             "device": "_system",
@@ -97,4 +97,10 @@ With this device you cannot use REFRESH, which produces an output only if the da
      
 ````
 
+ ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/meterA001.png?raw=true)
  
+ As can be seen in the figure, two devices (`meterB`, `meterC`) respond to GET with the requested `dp`., while the device `meterZ` responds as to a SCHEMA request.
+ 
+ note: _For the repeated interval (like 'Interval for retry connection' in tuya-smart-device nodes, timeout in loops, etc.) use different values, better prime number (https://www.walter-fendt.de/html5/mit/primenumbers_it.htm), to spread better tuyaDAEMON activity, and NOT 2 sec, 3000 ms etc._
+ 
+
