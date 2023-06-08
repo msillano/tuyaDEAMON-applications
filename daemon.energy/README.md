@@ -80,8 +80,9 @@ With this device you cannot use REFRESH, which produces an output only if the da
                                     "device": "meterB",
                                     "property": "19",
                                     "value": null
-                                } ] ,
-                       "__comment":" more, if required",           
+                                } ] },
+                       "__comment":" more, if required",
+                            {
                              "action": [
                                 {
                                     "property": "_timerON",
@@ -91,9 +92,10 @@ With this device you cannot use REFRESH, which produces an output only if the da
                                         "alarmPayload": {
                                             "device": "_system",
                                             "property": "_refreshforever",
-                                            "value": "more"
-                                        } } } ]
-                      }
+                                            "value": "loop"
+                               } } } ]
+                     }]
+              }
      
 ````
 
