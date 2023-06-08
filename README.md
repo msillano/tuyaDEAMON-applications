@@ -45,6 +45,12 @@ example:<br>
 `45276 | 2023-05-28 07:33:32 | MACTEST | RX | 1234569b99a78mkj6 | mainAC | 6 | phaseA | CYgAAlgAADMACw== | {"V":244,"Leack":0.002,"A":0.67584,"W":51}`.
 
 -----------------
+## Applications
+
+- [daemon.power](https://github.com/msillano/tuyaDEAMON-applications/tree/main/daemon.energy) A WEB dashboard application to a photovoltaic home system.  
+  
+-----------------
 ## Programmer's notes 
->  1. purging db `tuyathome.messages`   
+>  1. [Purging db `tuyathome.messages`](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-1:--Purging--tuyathome.messages-table)
+>  2. [Archiving device's data](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages)   
 
