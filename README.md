@@ -47,7 +47,7 @@ example:<br>
 -----------------
 ## Applications
 
-- [daemon.power](https://github.com/msillano/tuyaDEAMON-applications/tree/main/daemon.energy) A WEB dashboard application to a photovoltaic home system.  
+- [daemon.power](https://github.com/msillano/tuyaDEAMON-applications/tree/main/daemon.energy) A WEB dashboard application for a photovoltaic home system.  
   
 -----------------
 ## Programmer's notes 
