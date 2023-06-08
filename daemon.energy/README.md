@@ -11,20 +11,22 @@ To tailor the flow and tuyaDEAMON to achieve a well-populated 5-minute database 
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/mainAC003.png?raw=true)
 
-
 The better solution found requires the use of the updated version of the code (see [core installation](https://github.com/msillano/tuyaDAEMON/tree/main/tuyaDAEMON#first-time-installation-core)) with two nodes that control the data processed by the tuya-smart-device node, exploiting the fact that redundant messages are "event-refresh":
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/mainAC002.png?raw=true)
 
 - The first node, 'inject', produces a message with payload 'now' every 97 seconds.
 - The second node, 'trigger', produces two messages for the device:
-      - when a message arrives, produces:
-        "payload": {
+      
+    - when a message arrives, produces:
+     
+         "payload": {
             "operation":"CONTROL",
             "action":"SET_DATA_EVENT",
             "value":"both"
-            }                 
-     - and, 5 seconds later:
+            } 
+            
+    - and, 5 seconds later:
         "payload": {
             "operation":"CONTROL",
             "action":"SET_DATA_EVENT",
