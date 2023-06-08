@@ -18,43 +18,83 @@ The better solution found requires the use of the updated version of the code (s
 - The first node, 'inject', produces a message with payload 'now' every 97 seconds.
 - The second node, 'trigger', produces two messages for the device:
       
-    - when a message arrives, produces:
-     
-         "payload": {
+when a message arrives, it produces:
+````       
+     "payload": {
             "operation":"CONTROL",
             "action":"SET_DATA_EVENT",
             "value":"both"
-            } 
-            
-    - and, 5 seconds later:
+            }
+````            
+and, 5 seconds later:
+````            
         "payload": {
             "operation":"CONTROL",
             "action":"SET_DATA_EVENT",
             "value":"event-data"
-            }                 
+            }   
+````            
+            
 This gives 5 seconds of data every 97 seconds, enough to ensure enough values every 5 minutes.
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/mainAC004.png?raw=true)
 
-An alternative is an aggregation mechanism to reduce the amount of unnecessary data stored in the database but not the processing load.
+An alternative is an aggregation mechanism to reduce the amount of unnecessary data stored in the database but not the processing load. Here is used the **RT/AVG** subflow.
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/mainAC001.png?raw=true)
 
-This solution has the advantage of using the original tuya-smart-device node code.
+_This solution has the only advantage of using the original tuya-smart-device node code._
 
 
 
 
-1. Lazy Devices (Too Little Data):
-   - Implement a mechanism to detect when a device is not providing data regularly. You can set a threshold time interval and check if the device has not sent any data within that timeframe.
-   - For lazy devices, you can introduce a fallback mechanism. If a device is deemed lazy, you can populate the database view with default or interpolated data based on the previous known values until new data arrives.
-   - Consider setting up notifications or alerts to monitor the devices' activity and take appropriate action if a device consistently fails to provide data.
+2. Lazy Devices (Too Little Data)
+ Other devices transmit data too infrequently. This is the case, for example, of [meter-plugs](https://github.com/msillano/tuyaDAEMON/blob/main/devices/Smart_socket/device_Smart_socket.pdf) used to evaluate the consumption of some household appliances.
+With this device you cannot use REFRESH, which produces an output only if the data has changed, but you must make repeated readings (GET) about every 100 seconds. Since you don't have to use new functions, you don't need to change the flows, and the implementation is all done with 'share', updating _system._laststart_, and adding a new dp (method) system._refreshforever. 
 
-Additionally, you can apply general techniques to optimize the flow and tuyadaemon:
+````
+                {
+                    "dp": "_laststart",
+                    "capability": "RO",
+                    "__comment": "share to implement autostart",
+                    "share": [
+                        {
+                            "test": [
+                                "msg.info.value"
+                            ],
+                            "action": [
+                                {
+                                    "property": "_refreshforever",
+                                    "value": "go"
+                                } ] } ] },
+                {
+                    "dp": "_refreshforever",
+                    "capability": "SKIP",
+                    "share": [
+                        {
+                            "test": [
+                                "tuyastatus.meterZ  && tuyastatus.meterZ._connected"
+                            ],
+                            "action": [
+                                {
+                                    "device": "meterB",
+                                    "property": "19",
+                                    "value": null
+                                } ] ,
+                       "__comment":" more, if required",           
+                             "action": [
+                                {
+                                    "property": "_timerON",
+                                    "value": {
+                                        "timeout": "60037",
+                                        "id": "refreshforever",
+                                        "alarmPayload": {
+                                            "device": "_system",
+                                            "property": "_refreshforever",
+                                            "value": "more"
+                                        } } } ]
+                      }
+     
+````
 
-- Implement data compression techniques to reduce the storage space required for each data entry, especially for verbose devices.
-- Optimize the database schema and indexes to ensure efficient storage and retrieval of data.
-- Use caching mechanisms to improve performance by storing frequently accessed data in memory.
-- Employ batch processing or stream processing techniques to handle data ingestion and processing efficiently.
-
-By combining these approaches and customizing them based on the specific characteristics of your lazy and verbose devices, you can tailor the flow and tuyadaemon to achieve a well-populated 5-minute database view while effectively managing the quirks of different devices.
+ 
