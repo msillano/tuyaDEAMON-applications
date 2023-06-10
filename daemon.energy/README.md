@@ -2,6 +2,8 @@ This home automation application offers a seamless and intuitive user experience
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/app003.png?raw=true)
 
+_This HTML page uses the data present in the `historical.energy1h` table obtained from the `tuyathome.energy view` with the techniques illustrated in [Archiving db tuyathome.messages](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages). Only a few specific aspects of this project are highlighted here._
+
 ### step 1: fine tuning tuyaDEAMON
 
 To tailor the flow and **tuyaDEAMON** to achieve a well-populated 5-minute `'energy' view` while dealing with lazy devices and verbose devices, I used the following approaches:
