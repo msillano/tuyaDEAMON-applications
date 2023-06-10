@@ -2,7 +2,7 @@ This home automation application offers a seamless and intuitive user experience
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/app003.png?raw=true)
 
-_This HTML page uses the data present in the `historical.energy1h` table obtained from the `tuyathome.energy view` with the techniques illustrated in [Archiving db tuyathome.messages](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages). Only a few specific aspects of this project are highlighted here._
+_This HTML page  (index.php) uses the data present in the `historical.energy1h` table obtained from the `tuyathome.energy view` with the techniques illustrated in [Archiving db tuyathome.messages](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages). Only a few specific aspects of this project are highlighted here._
 
 ### step 1: fine tuning tuyaDEAMON
 
@@ -125,4 +125,31 @@ note: _To send an initial `SCHEMA` to a device, just add a `share` to the device
 with a test on the value, which must be 'true'._
 
 ### step 2: dataBase management
+The `historic.energy1h` table is updated automatically every 24h (or 12h) by TuyaDAEMON, to guarantee its completeness. An extra update when loading this page allows an updated graph of the last 24 hours (requires the reload of the page).
+
+````
+ -- This stored procedure updates to 'now' the 'energy1h' table
+DELIMITER //
+CREATE PROCEDURE do_refreshEnergy()
+BEGIN
+      CALL `tuyathome`.`energyViewToEnergyTable`();
+      DO SLEEP(2);
+      CALL `storico`.`consolidate_toHour`('storico','energy');
+	  END //
+DELIMITER ;
+````
+And the PHP code  in `index.php` is:
+````
+  $query1  = "CALL  `storico`.`do_refreshEnergy`();";
+  $db = new mysqli($servername, $username, $password, "storico");       // connection stuff defined in interface.php
+  if ($db->connect_errno) {
+      die('Error DB connection: '. $db->connect_error);
+      }
+  $db->query($query1);
+  $db->close;
+````
+
+
+
+
 
