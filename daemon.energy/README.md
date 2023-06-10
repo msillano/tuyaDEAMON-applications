@@ -50,7 +50,13 @@ _This solution has the only advantage of using the original tuya-smart-device no
 
 #### 1.b Lazy Devices (Too Little Data)
  Other devices transmit data too infrequently. This is the case, for example, of [meter-plugs](https://github.com/msillano/tuyaDAEMON/blob/main/devices/Smart_socket/device_Smart_socket.pdf) used to evaluate the consumption of some household appliances.
-With this device you cannot use REFRESH, which produces an output only if the data has changed, but you must make repeated readings (GET) about every 100 seconds. Since you don't have to use new functions, you don't need to change the flows, and the implementation is all done with 'share', updating _system._laststart_, and adding a new dp (method) system._refreshforever. 
+One solution is to poll the device at regular intervals, e.g. 120 s, to have enough data in view intervals, 5 m (300 s).
+Options:
+ - send a REFRESH: as standard response the device sends changed dPs.
+ - send a GET: as standard response the device sends the asked dP.
+ - send a SCHEMA: as standard response the device sends all dPs.
+  
+Since you don't have to use new functions, you don't need to change the flows, and the implementation is all done with 'share', updating _system._laststart_, and adding a new dp (method) system._refreshforever. 
 
 ````
                 {
@@ -73,15 +79,18 @@ With this device you cannot use REFRESH, which produces an output only if the da
                     "share": [
                         {
                             "test": [
-                                "tuyastatus.meterZ  && tuyastatus.meterZ._connected"
+                                "tuyastatus.meterB  && tuyastatus.meterB._connected"
                             ],
                             "action": [
                                 {
+                                    "__comment": "This is a GET",
                                     "device": "meterB",
                                     "property": "19",
                                     "value": null
                                 } ] },
-                       "__comment":" more, if required",
+                                
+                       "__comment":" more devices here, if required",
+                       
                             {
                              "action": [
                                 {
@@ -103,6 +112,6 @@ With this device you cannot use REFRESH, which produces an output only if the da
  
  As can be seen in the figure, two devices (`meterB`, `meterC`) respond to periodical GET with the requested `dp`., while the device `meterZ` responds as to a SCHEMA request.
  
- note: _For the repeated interval (like 'Interval for retry connection' in tuya-smart-device nodes, timeout in loops, etc.) use different values, better prime number (https://www.walter-fendt.de/html5/mit/primenumbers_it.htm), to spread better tuyaDAEMON activity, and NOT 2 sec, 3000 ms etc._
+ note: _For the repeated intervals (like 'Interval for retry connection' in tuya-smart-device nodes, timeout in loops, etc.) use different values, better if prime numbers (https://www.walter-fendt.de/html5/mit/primenumbers_it.htm), to spread the tuyaDAEMON activity, and NOT 2 sec, 3000 ms etc._
  
 
