@@ -56,6 +56,11 @@ Options:
  - send a GET: as standard response the device sends the asked dP.
  - send a SCHEMA: as standard response the device sends all dPs.
   
+The more efficient strategy (if SCHEMA and REFRESH are allowed):
+  - At startup (or as soon as possible) send a SCHEMA request to device.
+  - Then do REFRESH polling
+  - Applications can READ data from global.tuyastatus (as REST does) that stores last results.
+   
 Since you don't have to use new functions, you don't need to change the flows, and the implementation is all done with 'share', updating _system._laststart_, and adding a new dp (method) system._refreshforever. 
 
 ````
@@ -114,4 +119,8 @@ Since you don't have to use new functions, you don't need to change the flows, a
  
  note: _For the repeated intervals (like 'Interval for retry connection' in tuya-smart-device nodes, timeout in loops, etc.) use different values, better if prime numbers (https://www.walter-fendt.de/html5/mit/primenumbers_it.htm), to spread the tuyaDAEMON activity, and NOT 2 sec, 3000 ms etc._
  
+note: _To send an initial SCHEMA to a device, just add a 'share' to the dp '_connected',
+with a test on the value, which must be 'true'._
+
+### step 2: dataBase management
 
