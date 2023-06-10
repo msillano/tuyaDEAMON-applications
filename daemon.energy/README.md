@@ -1,8 +1,10 @@
-This home automation application offers a seamless and intuitive user experience, empowering you to take control of your home's energy management, photovoltaic system, climate control, and garden irrigation. Explore the possibilities and make your home smarter and more efficient with a HTML front-end to TuyaDEAMON.
+This home automation application offers a seamless and intuitive user experience, empowering you to take control of your home's energy management, photovoltaic system. Explore the possibilities and make your home smarter and more efficient with a HTML front-end to TuyaDEAMON.
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/app003.png?raw=true)
 
 _This HTML page  (index.php) uses the data present in the `historical.energy1h` table obtained from the `tuyathome.energy view` with the techniques illustrated in [Archiving db tuyathome.messages](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages). Only a few specific aspects of this project are highlighted here._
+
+This is a work in progress: the last version is 'wwwdaemon.zip'.
 
 ### step 1: fine tuning tuyaDEAMON
 
