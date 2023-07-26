@@ -151,7 +151,7 @@ And the PHP code  in `index.php` is:
   $db->close;
 ````
 
-
+For details on DB management, see [note 2: Archiving db `tuyathome.messages`](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages).
 
 
 
