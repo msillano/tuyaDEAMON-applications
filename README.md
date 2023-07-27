@@ -58,4 +58,4 @@ Some activities are handled by TuyaDAEMON with the _Tuya-cloud_ collaboration: i
 ## Programmer's notes 
 >  1. [Purging db `tuyathome.messages`](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-1:--Purging--tuyathome.messages-table)
 >  2. [Archiving device's data](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages)   
-
+>  3. [Dynamic HTML pages](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-3-%E2%80%90-dynamic-HTML-pages)
