@@ -1,4 +1,4 @@
-This home automation application offers a seamless and intuitive user experience, empowering you to take control of your home's energy management, photovoltaic system. Explore the possibilities and make your home smarter and more efficient with a HTML front-end to TuyaDEAMON.
+This home automation application offers a seamless and intuitive user experience, empowering you to take control of your home's energy management, photovoltaic system. Explore the possibilities and make your home smarter and more efficient with an HTML front-end to TuyaDEAMON.
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/app003.png?raw=true)
 
@@ -6,16 +6,16 @@ _This HTML page  (index.php) uses the data present in the `historical.energy1h` 
 
 This is a work in progress: the last version is 'wwwdaemon.zip'.
 
-### step 1: fine tuning tuyaDEAMON
+### step 1: fine-tuning tuyaDEAMON
 
 To tailor the flow and **tuyaDEAMON** to achieve a well-populated 5-minute `'energy' view` while dealing with lazy devices and verbose devices, I used the following approaches:
 
 #### 1.a Verbose Devices (Too Much Data)
- A [BreakerDIN](https://github.com/msillano/tuyaDAEMON/blob/main/devices/BreakerDIN/device_BreakerDIN.pdf) is used as differential breacker on the house electrical switchboard, and as grid power meter. The problem is that it send data every second, and I haven't found a method to reduce the throughput of the device. 
+ A [BreakerDIN](https://github.com/msillano/tuyaDAEMON/blob/main/devices/BreakerDIN/device_BreakerDIN.pdf) is used as a differential breaker on the house electrical switchboard and as the grid power meter. The problem is that it sends data every second, and I haven't found a method to reduce the throughput of the device. 
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/mainAC003.png?raw=true)
 
-The better solution found requires the use of the updated version of the code (see [core installation](https://github.com/msillano/tuyaDAEMON/tree/main/tuyaDAEMON#first-time-installation-core)) with two nodes that control the data processed by the `tuya-smart-device` node, exploiting the fact that redundant messages are `event-refresh`:
+The better solution found requires the use of node-red-contrib-tuya-smart-device ver. 5.2.0 with two nodes that control the data processed by the `tuya-smart-device` node, exploiting the fact that redundant messages are `event-refresh`:
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/mainAC002.png?raw=true)
 
@@ -26,15 +26,15 @@ when a message arrives, it produces:
 ````       
      "payload": {
             "operation":"CONTROL",
-            "action":"SET_DATA_EVENT",
-            "value":"both"
+            "action":"SET_EVENT_MODE",
+            "value":"event-both"
             }
 ````            
 and, 5 seconds later:
 ````            
         "payload": {
             "operation":"CONTROL",
-            "action":"SET_DATA_EVENT",
+            "action":"SET_EVENT_MODE",
             "value":"event-data"
             }   
 ````            
@@ -47,23 +47,20 @@ An alternative is an aggregation mechanism to reduce the amount of unnecessary d
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/mainAC001.png?raw=true)
 
-_This solution has the only advantage of using the original tuya-smart-device node code._
-
-
 
 
 #### 1.b Lazy Devices (Too Little Data)
  Other devices transmit data too infrequently. This is the case, for example, of [meter-plugs](https://github.com/msillano/tuyaDAEMON/blob/main/devices/Smart_socket/device_Smart_socket.pdf) used to evaluate the consumption of some household appliances.
 One solution is to poll the device at regular intervals, e.g. 120 s, to have enough data in view intervals, 5 m (300 s).
 Options:
- - send a `REFRESH`: as standard response the device sends changed dPs.
- - send a `GET`: as standard response the device sends the asked dP.
- - send a `SCHEMA`: as standard response the device sends all dPs.
+ - send a `REFRESH`: as a standard response, the device sends changed dPs.
+ - send a `GET`: as a standard response, the device sends the asked dP.
+ - send a `SCHEMA`: as a standard response, the device sends all dPs.
   
 The more efficient strategy (if `SCHEMA` and `REFRESH` are allowed):
-  - At startup (or as soon as possible) send a `SCHEMA` request to device.
+  - At startup (or as soon as possible) send a `SCHEMA` request to the device.
   - Then do `REFRESH` polling
-  - Applications can READ data from `global.tuyastatus` (as REST does) that stores last results.
+  - Applications can READ data from `global.tuyastatus` (as REST does) that stores the last results.
    
 Since you don't have to use new functions, you don't need to change the flows, and the implementation is all done with 'share', updating `_system._laststart`, and adding a new `dp` (method) `_system._refreshforever`. 
 
@@ -119,7 +116,7 @@ Since you don't have to use new functions, you don't need to change the flows, a
 
  ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/meterA001.png?raw=true)
  
- As can be seen in the figure, two devices (`meterB`, `meterC`) respond to periodical `GET` with the requested `dp`., while the device `meterZ` responds as to a `SCHEMA` request.
+ As can be seen in the figure, two devices (`meterB`, `meterC`) respond to periodical `GET` with the requested `dp`., while the device `meterZ` responds to a `SCHEMA` request.
  
  note: _For the repeated intervals (like 'Interval for retry connection' in tuya-smart-device nodes, timeout in loops, etc.) use different values, better if prime numbers (https://www.walter-fendt.de/html5/mit/primenumbers_it.htm), to spread the tuyaDAEMON activity, and NOT 2 sec, 3000 ms etc._
  
