@@ -15,7 +15,7 @@ To tailor the flow and **tuyaDEAMON** to achieve a well-populated 5-minute `'ene
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/mainAC003.png?raw=true)
 
-The better solution found requires the use of node-red-contrib-tuya-smart-device ver. 5.2.0 with two nodes that control the data processed by the `tuya-smart-device` node, exploiting the fact that redundant messages are `event-refresh`:
+The better solution found requires the use of a `node-red-contrib-tuya-smart-device` ver. 5.2.0 with two nodes that control the data processed by the `tuya-smart-device` node, exploiting the fact that redundant messages are `event-refresh`:
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/mainAC002.png?raw=true)
 
@@ -39,7 +39,7 @@ and, 5 seconds later:
             }   
 ````            
             
-This gives 5 seconds of data every 97 seconds, enough to ensure enough values every 5 minutes.
+This gives 5 seconds of data every 97 seconds, enough to ensure some values every 5 minutes.
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/mainAC004.png?raw=true)
 
