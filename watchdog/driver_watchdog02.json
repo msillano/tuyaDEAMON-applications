@@ -1,0 +1,352 @@
+[
+    {
+        "id": "56239dd96a8b6d8d",
+        "type": "subflow",
+        "name": "driver_watchdog02",
+        "info": "Driver for MQTT Watchdog02 (ESP01)\n\nThis is a direct replacement for `tuya-smart-device` node.\n\nSo the device `_watchdog02`, in `global.alldevices`,  is among the `real` devices.\n\n <dl class=\"message-properties\">\n        <dt>deviceId\n            <span class=\"property-type\">string (credential)</span>\n        </dt>\n        <dd>   The ID of the ESP01 device (same as in `core.global.alldevices`).\n        </dd>\n       </dl>\n\n\n### Installation\n\nI used a `static rety` node. \n\nNo configuration is required, apart from the MQTT config node that must connect with the broker present on the switch.\n\n",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 260,
+                "wires": [
+                    {
+                        "id": "bf025610f97bfbd8"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1110,
+                "y": 380,
+                "wires": [
+                    {
+                        "id": "e2574e88505887c5",
+                        "port": 0
+                    },
+                    {
+                        "id": "5e5814f0ddc3c17d",
+                        "port": 0
+                    },
+                    {
+                        "id": "b9ccf3e2a2020390",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1110,
+                "y": 460,
+                "wires": [
+                    {
+                        "id": "3201d90b25442ec2",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "deviceID",
+                "type": "str",
+                "value": "_watchdog02",
+                "ui": {
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "cred"
+                        ]
+                    }
+                }
+            }
+        ],
+        "meta": {},
+        "color": "#C7E9C0",
+        "inputLabels": [
+            "message"
+        ],
+        "outputLabels": [
+            "data",
+            "state"
+        ],
+        "status": {
+            "x": 1000,
+            "y": 540,
+            "wires": [
+                {
+                    "id": "3201d90b25442ec2",
+                    "port": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "bd4e1e9167c75f4f",
+        "type": "mqtt in",
+        "z": "56239dd96a8b6d8d",
+        "name": "",
+        "topic": "watchdog02/event/switch",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "2e55898d.e8af66",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 490,
+        "y": 420,
+        "wires": [
+            [
+                "e2574e88505887c5"
+            ]
+        ]
+    },
+    {
+        "id": "cc4dfee8e50dd165",
+        "type": "mqtt out",
+        "z": "56239dd96a8b6d8d",
+        "name": "MQTT send",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2e55898d.e8af66",
+        "x": 450,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d59c9bb6838323b6",
+        "type": "mqtt in",
+        "z": "56239dd96a8b6d8d",
+        "name": "",
+        "topic": "watchdog02/event/cutoff",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "2e55898d.e8af66",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 490,
+        "y": 340,
+        "wires": [
+            [
+                "5e5814f0ddc3c17d"
+            ]
+        ]
+    },
+    {
+        "id": "af6ed3b970d9bcf0",
+        "type": "mqtt in",
+        "z": "56239dd96a8b6d8d",
+        "name": "",
+        "topic": "watchdog02/event/delay",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "2e55898d.e8af66",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 490,
+        "y": 380,
+        "wires": [
+            [
+                "b9ccf3e2a2020390"
+            ]
+        ]
+    },
+    {
+        "id": "e88d4a54478291e1",
+        "type": "status",
+        "z": "56239dd96a8b6d8d",
+        "name": "MQTT status",
+        "scope": [
+            "bd4e1e9167c75f4f",
+            "cc4dfee8e50dd165",
+            "d59c9bb6838323b6",
+            "af6ed3b970d9bcf0"
+        ],
+        "x": 490,
+        "y": 480,
+        "wires": [
+            [
+                "3201d90b25442ec2"
+            ]
+        ]
+    },
+    {
+        "id": "e2574e88505887c5",
+        "type": "function",
+        "z": "56239dd96a8b6d8d",
+        "name": "Format out",
+        "func": "\nvar newMsg = {\n    \"payload\": {\n        \"deviceId\": \"_watchdog02\",\n        \"data\": {\n            \"dps\": {\n            }\n        }\n    }\n};\nnewMsg.payload.data.dps[\"_outDC\"] = (msg.payload == 0? \"OFF\":\"ON\");\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5e5814f0ddc3c17d",
+        "type": "function",
+        "z": "56239dd96a8b6d8d",
+        "name": "Format  out",
+        "func": "\nvar newMsg = { \n    \"payload\":{\n        \"deviceId\": \"_watchdog02\",\n        \"data\": {\n             \"dps\":{\n            }}}};\nnewMsg.payload.data.dps[\"_cutoff\"] = msg.payload;\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b9ccf3e2a2020390",
+        "type": "function",
+        "z": "56239dd96a8b6d8d",
+        "name": "Format out",
+        "func": "\nvar newMsg = {\n    \"payload\": {\n        \"deviceId\": \"_watchdog02\",\n        \"data\": {\n            \"dps\": {\n            }\n        }\n    }\n};\nnewMsg.payload.data.dps[\"_delay\"] = msg.payload;\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node \n",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf025610f97bfbd8",
+        "type": "function",
+        "z": "56239dd96a8b6d8d",
+        "name": "SET to MQTT",
+        "func": "// SET: format change, and some name/values changes\n\nlet command = msg.payload.operation || 'SET';\nconst PREFIX = \"watchdog02/set/\";\n\nif (command == 'SET'){\n       switch(msg.payload.dps) {\n           case '_cutoff':    // MQTT commands\n               msg.topic = PREFIX + \"cutoff\";\n               if (msg.payload.set > 99)\n                   msg.payload = msg.payload.set;\n               else\n                   msg.payload = 10;\n               return msg;\n      \n           case '_delay':\n               msg.topic = PREFIX + \"delay\";\n               if (msg.payload.set > 99)\n                   msg.payload = msg.payload.set;\n               else\n                   msg.payload = 10;\n               return msg;\n\n           case '_dev_conn':\n               msg.topic = PREFIX + \"dev_conn\";\n               msg.payload = msg.payload.set ? 1:0 ;\n               return msg;\n       \n           case '_outDC':\n               msg.topic=PREFIX + \"switch\";\n               if(msg.payload.set == null)\n                   msg.payload = 10;\n               else \n                   msg.payload = msg.payload.set? 1:0;\n               return msg;\n\n            }\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 260,
+        "wires": [
+            [
+                "cc4dfee8e50dd165"
+            ]
+        ]
+    },
+    {
+        "id": "3201d90b25442ec2",
+        "type": "function",
+        "z": "56239dd96a8b6d8d",
+        "name": "set state",
+        "func": "\n\nreturn [{payload:{state : msg.status.fill === \"green\"?\"CONNECTED\":\"DISCONNECTED\"}},\n        msg];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 480,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "83be8c427c2913be",
+        "type": "comment",
+        "z": "56239dd96a8b6d8d",
+        "name": "device_watchdog02",
+        "info": "",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "8d6d30915b5391e6",
+        "type": "inject",
+        "z": "56239dd96a8b6d8d",
+        "name": "statup only",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 75,
+        "y": 160,
+        "wires": [
+            [
+                "150508e4f666cf38"
+            ]
+        ],
+        "icon": "node-red/trigger.svg",
+        "l": false
+    },
+    {
+        "id": "150508e4f666cf38",
+        "type": "function",
+        "z": "56239dd96a8b6d8d",
+        "name": "PDMtimer flow startup",
+        "func": "// Run as soon as possible after all 'On Start' and 'Global Config'.\n// note: the run order of all 'Global config' and all 'On Start' is undefined.\n// So, if some 'On Start' function  requires 'Global Config' data, palace it there.\n// --------------------------------------------------- standard\nconst asDEVICE =[\"_watchdog02\"];            // in alldevices, it can have friendly name\nconst asMODULE = \"modules.driver_watchdog02\";\nconst VERSION = \"2.2.0\";\n// --------------------------------------------------- standard\nif (!global.get(\"coresetup\")){\n    node.warn(\"CORE STARTUP ERROR: adjust startup delays.\");\n    return([null]);\n}\n// --------------------- init startup for the flow.\nglobal.set(asMODULE,  VERSION);  // update modules\n\n// access stuff\n// --- see also different implementation in 'core.core flow setup' node.\nlet oDev = context.global.alldevices.getODev(asDEVICE, \"real\");\nif (oDev === undefined){\n   node.warn(\"[startup] ERROR: not found the device '\"+asDEVICE+\"' in global.alldevices.\");\n   return;\n}\nvar pmDevName = context.global.alldevices.getDevName(oDev);\n// ---------------- inizializes global tuyastatus\nlet tstatus = \"tuyastatus['\"+ pmDevName+\"']\";\n// init using only _connected (not in alldevices), so does cleanup\nglobal.set(tstatus, {_connected: true});\n// init all GETable dps with default value\noDev.dps.forEach(adp => {\n    if (['RW','WW','GW','RO','UNK','PUSH', undefined].includes(adp.capability)){\n        let dpname = \"['\" + (adp.name ? adp.name:adp.dp)+\"']\";\n        switch (adp.dp){     // some special init:   \n          default:\n             global.set(tstatus+dpname, \"none\");\n        }\n    }\n });\n\n// --------------------------------------------- standard processing ends\n// more flow init required now (and not in 'On Start') by some properties    \n// see: 'On Start'.\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node \nflow.set(\"tstart\", 5);\nflow.set(\"tcount\", 0);\nflow.set(\"Max\", 0);\nflow.set(\"next\", true);\n",
+        "finalize": "global.set(\"modules.driver_PDMtimer\", undefined);\n",
+        "libs": [],
+        "x": 220,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e55898d.e8af66",
+        "type": "mqtt-broker",
+        "name": "watchdog#2",
+        "broker": "192.168.100.113",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "compatmode": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
