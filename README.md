@@ -63,6 +63,6 @@ Some activities are handled by TuyaDAEMON with the _Tuya-cloud_ collaboration: i
 ## Programmer's notes 
 >  1. [Purging db `tuyathome.messages`](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-1:--Purging--tuyathome.messages-table): strategies for managing log tables.
 >  2. [Archiving device's data](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages):  algorithms for the creation and management of time series.  
->  3. [Dynamic HTML pages](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-3-%E2%80%90-dynamic-HTML-pages):  simple WEB interface pages specialized for TuyaDAEMON. 
->  4. [Gateways and sensors](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-4:-Gateways-and-sensors): use of Zigbee and Bluetooth sensors with TuyaDAEMON.
+>  3. [Dynamic HTML pages](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-3-%E2%80%90-dynamic-HTML-pages):  simple WEB interface pages specialized for tuyaDAEMON. 
+>  4. [Gateways and sensors](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-4:-Gateways-and-sensors): use of Zigbee and Bluetooth sensors with tuyaDAEMON.
 >  5. [Watchdog for IOT](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-5:-Watchdog-for-IOT):  watchdog project (3 versions) and use of ESP-01 (ESP8266) for custom devices.
