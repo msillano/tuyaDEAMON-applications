@@ -1,4 +1,4 @@
-This home automation application offers a seamless and intuitive user experience, empowering you to take control of your home's energy management, photovoltaic system. Explore the possibilities and make your home smarter and more efficient with an HTML front-end to TuyaDEAMON.
+This home automation application offers a seamless and intuitive user experience, empowering you to take control of your home's energy management, and photovoltaic system. Explore the possibilities and make your home smarter and more efficient with an HTML front-end to TuyaDEAMON.
 
 ![](https://github.com/msillano/tuyaDEAMON-applications/blob/main/pics/app003.png?raw=true)
 
@@ -149,6 +149,7 @@ And the PHP code  in `index.php` is:
 ````
 
 For details on DB management, see [note 2: Archiving db `tuyathome.messages`](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages).
+
 
 
 
