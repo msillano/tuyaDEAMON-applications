@@ -74,5 +74,5 @@ Some activities are handled by TuyaDAEMON with the _Tuya-cloud_ collaboration: i
 -  [WEB user interface](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-6:-WEB-user-interface) Environments and Frameworks: why I choose the [Gentelella](https://github.com/ColorlibHQ/gentelella) template.
  
 ### Using the Gentelella template 
--  [Widget Customization: Energy/month](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-7:-Widget-customization) step-by-step custom widget for [month data](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages#:~:text=improve%20the%20system.-,EXAMPLE%239%20monthly%20energy%20view,-To%20evaluate%20the).   
+-  [Widget Customization: Energy/month](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-7:-Widget-customization) step-by-step custom widget for [energy month data](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages#:~:text=improve%20the%20system.-,EXAMPLE%239%20monthly%20energy%20view,-To%20evaluate%20the).   
 -  [Dynamic HTML pages: Garden irrigation](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-3-%E2%80%90-dynamic-HTML-pages):  step-by-step simple WEB interface page for tuyaDAEMON. 
