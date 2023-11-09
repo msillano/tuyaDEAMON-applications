@@ -1,6 +1,6 @@
 # tuyaDAEMON - An IoT Framework Empowering Project Development
 
-[tuyaDAEMON is an IoT framework](https://github.com/msillano/tuyaDAEMON) that provides users with a comprehensive set of resources to leverage in their projects. While each project is unique, tuyaDAEMON offers reusable solutions that facilitate the development process. 
+[TuyaDAEMON is an IoT framework](https://github.com/msillano/tuyaDAEMON) that provides users with a comprehensive set of resources to leverage in their projects. While each project is unique, tuyaDAEMON offers reusable solutions that facilitate the development process. 
 
 ### Enhanced IoT Project Development
 tuyaDAEMON serves as a powerful toolset for creating IoT projects, offering a wide range of features and resources. Whether you are developing a smart home system, industrial automation solution, or a wearable device, tuyaDAEMON provides a solid foundation to build upon. Its open and extensible nature allows developers to integrate various devices, sensors, and protocols seamlessly, ensuring compatibility and interoperability.
