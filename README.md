@@ -52,7 +52,7 @@ Some activities are handled by TuyaDAEMON with the _Tuya-cloud_ collaboration: i
 -----------------
 ## Applications
 
-- [daemon.power](https://github.com/msillano/tuyaDEAMON-applications/tree/main/daemon.energy) A WEB dashboard application for a photovoltaic home system.
+- [daemon.energy](https://github.com/msillano/tuyaDEAMON-applications/tree/main/daemon.energy) A WEB dashboard application for a photovoltaic home system.
 
 - [Watering timer](https://github.com/msillano/YAWT---Yet-Another-Watering-Timer) with a [WEB interface](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-3-‐-dynamic-HTML-pages).
   
