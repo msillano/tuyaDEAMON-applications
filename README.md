@@ -68,7 +68,7 @@ Some activities are handled by TuyaDAEMON with the _Tuya-cloud_ collaboration: i
 ### Data management
 -  [Purging db `tuyathome.messages`](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-1:--Purging--tuyathome.messages-table): strategies for managing log tables.
 -  [Archiving device's data](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages):  algorithms for the creation and management of db time series.
--  [Data tuning for application](https://github.com/msillano/tuyaDEAMON-applications/tree/main/daemon.energy): strategies for optimize the drvice's data throughput.
+-  [Data tuning for application](https://github.com/msillano/tuyaDEAMON-applications/tree/main/daemon.energy): strategies for optimize the device's data throughput.
 
 ### Application building 
 -  [WEB user interface](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-6:-WEB-user-interface) Environments and Frameworks: why I choose the [Gentelella](https://github.com/ColorlibHQ/gentelella) template.
