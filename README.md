@@ -41,7 +41,7 @@ Some activities are handled by TuyaDAEMON with the _Tuya-cloud_ collaboration: i
 <table><tr><td > Of the <a href="https://github.com/msillano/tuyaDAEMON/tree/main#database-interface"> DataBase </a>, only one table affects the applications and contains the historical log (commands and events) of TuyaDAEMON: `tuyathome.messages`. The record comprises complete information.<br> example:<br>
 <pre>45276 | 2023-05-28 07:33:32 | MACTEST | RX | 1234569b99a78mkj6 | mainAC | 6 | phaseA |
   CYgAAlgAADMACw== | {"V":244,"Leack":0.002,"A":0.67584,"W":51}</td></pre>.
- </td><td style="width:550px"><img src="https://github.com/msillano/tuyaDAEMON/blob/main/pics/dbtuyathome03.png?raw=true" width="500px" /> </td></tr></table>  
+ </td><td style="width:850px"><img src="https://github.com/msillano/tuyaDAEMON/blob/main/pics/dbtuyathome03.png?raw=true" width="800px" /> </td></tr></table>  
   
   
   
