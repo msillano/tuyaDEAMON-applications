@@ -30,7 +30,7 @@ tuyaDAEMON empowers IoT project development by providing a comprehensive framewo
 <BR CLEAR=”left” /></td><td>
 When designing applications, the TuyaDEAMON model simplifies as in the figure (in green the data, in black the commands). This doesn't mean that when developing an application one shouldn't sometimes intervene at a low level, to adapt some properties. Still, the application project is logically 'above' this simplified model of TuyaDAEMON.
 
-The two most essential interfaces for applications are highlighted: REST and database.
+The two most essential interfaces for applications are highlighted: **REST** and **database**.
 
 The [REST](https://github.com/msillano/tuyaDAEMON/wiki/tuyaDAEMON-REST) interface allows us to send any command (SET) and to send requests to know the last value of each property (GET). The format is straightforward and above all the same for all devices: `device[, property[, value]]`.
 </td></tr></table>
@@ -42,7 +42,8 @@ Some activities are handled by TuyaDAEMON with the _Tuya-cloud_ collaboration: i
 <pre>45276 | 2023-05-28 07:33:32 | MACTEST | RX | 1234569b99a78mkj6 | mainAC | 6 | phaseA |
   CYgAAlgAADMACw== | {"V":244,"Leack":0.002,"A":0.67584,"W":51}</td></pre>.
  </td><td style="width:850px"><img src="https://github.com/msillano/tuyaDAEMON/blob/main/pics/dbtuyathome03.png?raw=true" width="800px" /> </td></tr></table>  
-  
+
+ Specialized or application-oriented tables can be derived from this table and automatically updated. See [Archiving db messages](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages).
   
   
   
