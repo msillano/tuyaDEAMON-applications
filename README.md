@@ -70,10 +70,10 @@ The characteristics of the _custom devices_ (HW or software-only) are also inclu
 -  [Watchdog for IOT](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-5:-Watchdog-for-IOT):  watchdog project (3 versions) and use of the ESP-01 (ESP8266) for custom devices.
 
 ### Data management
--  [Purging 'tuyathome.messages' table](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-1:--Purging--tuyathome.messages-table): strategies for managing log tables.
--  [Archiving device's data](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages):  algorithms for the creation and management of db time series.
 -  [Data tuning for application](https://github.com/msillano/tuyaDEAMON-applications/tree/main/daemon.energy): strategies for optimize the device's data throughput.
-
+-  [Purging 'tuyathome.messages' table](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-1:--Purging--tuyathome.messages-table): strategies for managing db log tables.
+-  [Archiving device's data](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-2:-Archiving-db-tuyathome.messages):  algorithms for the creation and management of db time series.
+-  
 ### Application building 
 -  [WEB user interface](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-6:-WEB-user-interface) Environments and Frameworks: why I choose the [Gentelella](https://github.com/ColorlibHQ/gentelella) template.
  
