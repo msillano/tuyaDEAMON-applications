@@ -4,6 +4,7 @@
 
 ### Enhanced IoT Project Development
 tuyaDAEMON serves as a powerful toolset for creating IoT projects, offering a wide range of features and resources. Whether you are developing a smart home system, industrial automation solution, or a wearable device, tuyaDAEMON provides a solid foundation to build upon. Its open and extensible nature allows developers to integrate various devices, sensors, and protocols seamlessly, ensuring compatibility and interoperability.
+<img src= 'https://github.com/msillano/tuyaDAEMON/blob/main/pics/TuyaDAEMON_UI.png?raw=true' width="850px"   />
 
 ### Key Features and Capabilities
 
