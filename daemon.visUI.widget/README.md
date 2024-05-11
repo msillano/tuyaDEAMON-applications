@@ -1,6 +1,7 @@
 This Widget presents the structure of TuyaDAEMON, in a dynamic 'tree' arrangement and with popups to read the status and updated values of all devices.
 Zoom, Pan, and alterations can be done with just the mouse or, optionally. with buttons.
-The data update interval, in the tooltips of each device, is given by
+
+The data update interval, in the tooltips of each device, is given by <br>
                     `num_device x refresh_time` (default 4s) e.g. 1m20s for 20 devices
 
 ![User interface using VIS](https://github.com/msillano/tuyaDAEMON/blob/main/pics/daemonUIvis.png?raw=true)
@@ -30,7 +31,7 @@ Note: requires CORE only to run.
   - _'all' mode_: ALL devices in `global.alldevices` are monitored. This method can lead to many disconnected devices, especially during the testing phase. Always present ALL devices in TuyaDEAMON. 
 Note: requires at least CORE + SYSTEM to run.
 
-2) The basic data loop time is set to 4s by default. The polling frequency depends on the number of devices. Example 10 devices = 40 seconds (`visUI.html` line 23)
+2) The basic data loop time is set to 4s by default. The polling frequency depends on the number of devices (`visUI.html` line 23).
 
 ### Customization
 There are a few sectors of optional customizations to improve the look & feel of the widget:
