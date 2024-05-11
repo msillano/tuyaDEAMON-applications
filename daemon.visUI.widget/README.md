@@ -33,7 +33,7 @@ Note: requires CORE only to run.
     - _'all' mode_: ALL devices in `global.alldevices` are monitored. This method can lead to many disconnected devices, especially during the testing phase. Always present ALL devices in TuyaDEAMON. 
 Note: requires at least CORE + SYSTEM to run.
 
-2) The basic data loop time is set to 4s by default. The polling frequency depends on the number of devices (`visUI.html` line 23).
+2) The basic refresh loop time is set to 4s by default. The polling frequency depends on the number of devices (`visUI.html` line 23).
 
 ### Customization
 There are a few sectors of optional customizations to improve the look & feel of the widget:
