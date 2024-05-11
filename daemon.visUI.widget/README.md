@@ -52,7 +52,7 @@ You just need to load the main file `visUI.html` in your browser. If you want yo
 <hr>
 
 ### Installation
-Download and unzip the files to a directory. A WEB server is NOT necessary, as the code is all in JavaScript and executed by the browser.
+Download the `daemon-UIvis.x.x.zip` file and unzip all the files to a directory. A WEB server is NOT necessary, as the code is all in JavaScript and executed by the browser.
 At least update the URL, as indicated in Configuration.
 
 ### Versions
