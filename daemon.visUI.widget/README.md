@@ -47,7 +47,7 @@ In case of very long information, the browser can truncate the tooltip. A filter
 3) Typically the mouse + well is sufficient to do all commands, but if desired you can add control buttons for pan/zoom - see [figure](https://github.com/msillano/tuyaDEAMON-applications/tree/main). (`daemonUIVis.js`, line 156)
 
 ### Use
-Standalone as an APP or as a widget within a custom WEB page (`visUI.html` is an example of use). Being HTML/js it works in any OS, with a recent browser.
+Standalone as an APP (`visUI.html`) or as a widget (`daemonUIVis.js`) within a custom WEB page - in this case `visUI.html` is a guide to use. Being HTML/js it works in any OS, with a recent browser.
 You just need to load the main file `visUI.html` in your browser. If you want you can add an icon to the desktop.
 <hr>
 
