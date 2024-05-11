@@ -15,8 +15,11 @@ The main file `visUI.html` is an APP standalone, example of the widget use. The 
 - The code automatically adapts to each TuyaDAEMON implementation and requires very little intervention.
 
 ### Configuration
+
 - You need to update the TuyaDAEMON URL in the main file (`visUI.html` line 16). Typically it is local, but this is not necessarily the case: remote monitoring is also possible, especially if used as a standalone APP and not as a widget.
-- Update: the basic data polling time is set to 4s by default. The update frequency depends on the number of devices. Example 10 devices = 40 seconds (`visUI.html` line 23)
+- The `modules` array contains names 'user defined' in the `global.alldevices`: you must update the array to match your names. If new TuyaDAEMON extension modules are created in the future, these must be added (`visUI.html` line 28).
+- The basic data polling time is set to 4s by default. The polling frequency depends on the number of devices. Example 10 devices = 40 seconds (`visUI.html` line 23)
+
 
 ### Options
 1) The list of monitored devices is obtained when the program is started and is NOT updated.
