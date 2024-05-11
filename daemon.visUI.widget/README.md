@@ -1,3 +1,5 @@
+## Widget TuyaDEAMON UI (vis) ##
+
 This Widget presents the structure of TuyaDAEMON, in a dynamic 'tree' arrangement and with popups to read the status and updated values of all devices.
 Zoom, Pan, and alterations can be done with just the mouse or, optionally. with buttons.
 
