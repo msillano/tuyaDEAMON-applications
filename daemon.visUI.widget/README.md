@@ -3,7 +3,7 @@ Zoom, Pan, and alterations can be done with just the mouse or, optionally. with 
 The data update interval, in the tooltips of each device, is given by
                     `num_device x refresh_time` (default 4s) e.g. 1m20s for 20 devices
 
-![User interface using VIS](https://github.com/msillano/tuyaDAEMON/blob/main/pics/daemonUIavi.png?raw=true)
+![User interface using VIS](https://github.com/msillano/tuyaDAEMON/blob/main/pics/daemonUIvis.png?raw=true)
 
 The choice of the visualization library fell on Vis Network (https://visjs.github.io/vis-network/docs/network/) for its flexibility combined with good ease of use.
 The nodes and links are two arrays dynamically built by the code by reading the data from TuyaDAEMON via REST.
