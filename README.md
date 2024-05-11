@@ -58,6 +58,8 @@ The characteristics of the _custom devices_ (HW or software-only) are also inclu
 -----------------
 ## Applications
 
+- [TuyaDAEMON UI standalone](https://github.com/msillano/tuyaDEAMON-applications/tree/main/daemon.visUI.widget)  An APP example of the use of the UI widget (see figure on top).
+  
 - [daemon.energy](https://github.com/msillano/tuyaDEAMON-applications/tree/main/daemon.energy) A WEB dashboard application for a photovoltaic home system.
 
 - [Watering timer](https://github.com/msillano/YAWT---Yet-Another-Watering-Timer) with a [WEB interface](https://github.com/msillano/tuyaDEAMON-applications/wiki/note-3-‐-dynamic-HTML-pages).
