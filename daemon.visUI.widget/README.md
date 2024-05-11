@@ -38,7 +38,7 @@ By default, they have special icons: Thermometers (a device with the name 'Temp.
 2) The tooltip that opens under the mouse contains by default ALL the latest values of the device's DPs (as per SCHEMA), and normally no processing is necessary.
 In case of very long information, the browser can truncate the tooltip. A filter function can be customized to select the most important information by device type. (`daemonUIVis.js`, line 70)
 
-3) Typically the mouse + well is sufficient as a user interface, but if desired you can add control buttons for pan/zoom. (`daemonUIVis.js`, line 156)
+3) Typically the mouse + well is sufficient as a user interface, but if desired you can add control buttons for pan/zoom - see [figure](https://github.com/msillano/tuyaDEAMON-applications/tree/main). (`daemonUIVis.js`, line 156)
 
 ### Use
 Standalone as an APP or as a widget within a custom WEB page (`visUI.html` is an example of use). Being HTML/js it works in any OS, with a recent browser.
