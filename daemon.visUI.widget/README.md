@@ -25,10 +25,10 @@ The main file `visUI.html` is an APP standalone, example of the widget use. The 
 1) The list of monitored devices is obtained when the program is started and is NOT updated.
 The program uses 2 methods to get the list, which the user can choose from (`visUI.html` line 19):
 
-  - _'live' mode_: ALL devices in `tuyastatus` are monitored, i.e. the devices that have sent data. Since a Deploy or Restart of node-red resets all data, the number of devices varies: some devices can disappear from the UI until they send new data (even hours/days) A reload of the widget updates the list. More suitable for occasional use. 
+    - _'live' mode_: ALL devices in `tuyastatus` are monitored, i.e. the devices that have sent data. Since a Deploy or Restart of node-red resets all data, the number of devices varies: some devices can disappear from the UI until they send new data (even hours/days) A reload of the widget updates the list. More suitable for occasional use. 
 Note: requires CORE only to run.
 
-  - _'all' mode_: ALL devices in `global.alldevices` are monitored. This method can lead to many disconnected devices, especially during the testing phase. Always present ALL devices in TuyaDEAMON. 
+    - _'all' mode_: ALL devices in `global.alldevices` are monitored. This method can lead to many disconnected devices, especially during the testing phase. Always present ALL devices in TuyaDEAMON. 
 Note: requires at least CORE + SYSTEM to run.
 
 2) The basic data loop time is set to 4s by default. The polling frequency depends on the number of devices (`visUI.html` line 23).
